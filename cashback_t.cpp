@@ -15,7 +15,7 @@ double iter(int ci, int flags)
 
     double mx = 0.0;
     for(int s=0; s <= ns; ++s){
-        if( flags & s ) continue; // invalid set
+        if( flags & s ) continue; // invalid set; already taken expenses are aslo in s set
 
         ll sum = 0;
         auto ts = s;
@@ -26,7 +26,7 @@ double iter(int ci, int flags)
             }
         }
 
-        double cb;
+        double cb; //cashback
         if( sum >= get<0>(C[ci]) ) cb = (double)sum * get<1>(C[ci]) / 100.0;
         else cb = (double)sum * get<2>(C[ci]) / 100.0;
 
